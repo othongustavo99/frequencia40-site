@@ -9,7 +9,8 @@
     "preview": "astro preview --host 0.0.0.0",
     "check": "astro check",
     "verify:release": "node scripts/verify-release.mjs",
-    "verify:live": "node scripts/check-live.mjs"
+    "verify:live": "node scripts/check-live.mjs",
+    "verify:domain": "node scripts/verify-domain.mjs"
   },
   "dependencies": {
     "astro": "7.4.4"

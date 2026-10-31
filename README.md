@@ -56,3 +56,8 @@ npm run verify:live -- https://DOMINIO-OFICIAL.com.br --production
 - Validações: `scripts/`.
 
 Todos os mockups são **exemplos conceituais** e não capturas de clientes. Os serviços além do catálogo digital são propostas sob demanda. Não existem nesta fase login, banco de dados, pagamentos, analytics, cookies de publicidade ou coleta direta de formulários.
+
+
+## Fase 6 — domínio próprio
+
+Veja `FASE-06.md` para registro do domínio, DNS Cloudflare, vinculação ao Worker e `SITE_URL` de build. Depois que o domínio estiver ativo, valide com `npm run verify:domain -- https://SEU-DOMINIO-REAL.com.br`.
