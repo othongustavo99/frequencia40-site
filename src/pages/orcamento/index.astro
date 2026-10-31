@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { company, services, whatsappUrl } from '../../data/site';
+---
+<BaseLayout title="Solicitar orçamento | Frequência40" description="Conte sua ideia para a Frequência40. Prepare uma solicitação de orçamento de tecnologia e envie diretamente pelo WhatsApp, sem cadastro.">
+  <Header />
+  <main id="principal">
+    <section class="request-intro">
+      <div class="container request-intro__inner">
+        <a class="request-back" href="/">← Voltar ao início</a>
+        <span class="eyebrow">SEU PROJETO COMEÇA AQUI</span>
+        <h1>Vamos transformar sua ideia em <span class="highlight">uma solução real.</span></h1>
+        <p>Conte um pouco sobre o seu negócio e o que precisa. Preparamos a mensagem para você conversar diretamente com a Frequência40.</p>
+      </div>
+    </section>
+    <section class="request-area" aria-labelledby="request-title">
+      <div class="container request-grid">
+        <div class="request-form-wrap">
+          <div class="form-heading"><span class="form-step">01 / SUA SOLICITAÇÃO</span><h2 id="request-title">Fale sobre o seu projeto</h2><p>Preencha somente o que souber. Podemos definir o restante juntos.</p></div>
+          <form id="budget-form" class="budget-form">
+            <div class="form-row">
+              <div class="field"><label for="client-name">Seu nome <span>(opcional)</span></label><input id="client-name" name="nome" type="text" placeholder="Como podemos chamar você?" autocomplete="name" maxlength="80" /></div>
+              <div class="field"><label for="business-name">Nome da empresa <span>(opcional)</span></label><input id="business-name" name="empresa" type="text" placeholder="Nome do seu negócio" autocomplete="organization" maxlength="100" /></div>
+            </div>
+            <div class="form-row">
+              <div class="field"><label for="city">Cidade <span>(opcional)</span></label><input id="city" name="cidade" type="text" placeholder="Ex.: Bragança Paulista" autocomplete="address-level2" maxlength="90" /></div>
+              <div class="field"><label for="service">Qual serviço você procura? <span class="required">*</span></label><select id="service" name="servico" required><option value="" disabled selected>Selecione um serviço</option>{services.map((service) => <option value={service.name}>{service.name}</option>)}<option value="Solução personalizada / outro serviço">Outra solução / ainda não sei</option></select></div>
+            </div>
+            <div class="field"><label for="project">O que você gostaria de resolver? <span class="required">*</span></label><textarea id="project" name="projeto" required rows="6" minlength="12" maxlength="1200" placeholder="Ex.: Tenho uma loja de roupas e quero um catálogo digital com produtos, carrinho e pedidos pelo WhatsApp."></textarea><span class="field-help">Pode escrever com suas próprias palavras. Não inclua senhas ou dados sensíveis.</span></div>
+            <div class="form-bottom"><div class="privacy-note"><span aria-hidden="true">✦</span><p>Este formulário <strong>não salva seus dados</strong> no site. Ao continuar, uma mensagem será preparada para envio no WhatsApp. Você confirma o envio no aplicativo.</p></div><button class="btn btn--gold" type="submit">Continuar no WhatsApp <span aria-hidden="true">↗</span></button></div>
+          </form>
+        </div>
+        <aside class="request-aside" aria-label="Como trabalhamos">
+          <div class="aside-orbit" aria-hidden="true"></div>
+          <span class="aside-kicker">FREQUÊNCIA40</span>
+          <h2>Da necessidade à <span>tecnologia certa.</span></h2>
+          <div class="aside-steps"><div><b>01</b><span><strong>Entendemos sua ideia</strong><small>Conversamos sobre seu negócio e objetivos.</small></span></div><div><b>02</b><span><strong>Planejamos a solução</strong><small>Definimos escopo, integração e possibilidades.</small></span></div><div><b>03</b><span><strong>Desenvolvemos juntos</strong><small>Construímos de acordo com a sua necessidade.</small></span></div></div>
+          <div class="aside-contact"><small>PREFERE FALAR DIRETAMENTE?</small><a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">WhatsApp {company.whatsappDisplay} ↗</a><p>Atendimento a Bragança Paulista e região.</p></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<script>
+  import { company } from '../../data/site';
+  const form = document.querySelector<HTMLFormElement>('#budget-form');
+  const serviceInput = document.querySelector<HTMLSelectElement>('#service');
+  const requestedService = new URLSearchParams(window.location.search).get('servico');
+  if (serviceInput && requestedService) {
+    const match = Array.from(serviceInput.options).find((option) => option.value === requestedService);
+    if (match) serviceInput.value = match.value;
+  }
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+    const data = new FormData(form);
+    const get = (key: string) => String(data.get(key) ?? '').trim();
+    const message = [
+      'Olá! Vim pelo site da Frequência40 e gostaria de solicitar um orçamento.',
+      '',
+      get('nome') && `Nome: ${get('nome')}`,
+      get('empresa') && `Empresa: ${get('empresa')}`,
+      get('cidade') && `Cidade: ${get('cidade')}`,
+      `Serviço: ${get('servico')}`,
+      `Meu projeto: ${get('projeto')}`,
+    ].filter(Boolean).join('\n');
+    window.location.assign(`https://wa.me/${company.whatsappDigits}?text=${encodeURIComponent(message)}`);
+  });
+</script>
+
+<style>
+  .request-intro{overflow:hidden;position:relative;background:radial-gradient(ellipse at 83% 14%,#62492230,transparent 53%),#0c0c0c;border-bottom:1px solid #403220}
+  .request-intro:after{content:'';position:absolute;right:-360px;top:-420px;width:650px;height:650px;border:1px solid #aa814944;border-radius:50%;pointer-events:none}
+  .request-intro__inner{padding-block:55px 81px}.request-back{display:block;width:max-content;color:#c6b69b;text-decoration:none;font-size:.83rem;margin-bottom:52px}.request-back:hover{color:#f2c876}
+  .request-intro h1{font-size:clamp(2.7rem,6vw,5.8rem);line-height:1.09;letter-spacing:-.067em;margin:25px 0;max-width:860px}.request-intro p{font-size:1rem;line-height:1.8;color:#bfb9ad;max-width:645px;margin-bottom:0}
+  .request-area{background:#0d0e0e;padding-block:75px 110px}.request-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(285px,.85fr);align-items:start;gap:26px}
+  .request-form-wrap{border:1px solid #51432f;background:linear-gradient(140deg,#191918,#111212);padding:clamp(23px,4.5vw,51px)}.form-step{letter-spacing:.18em;font-size:.65rem;color:#dcb46d;font-weight:750}
+  .form-heading h2{font-size:clamp(1.7rem,3vw,2.5rem);letter-spacing:-.045em;margin:15px 0 10px}.form-heading p{font-size:.89rem;color:#b9b5ac;margin-bottom:28px;line-height:1.7}
+  .budget-form{display:grid;gap:20px}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}.field{display:flex;flex-direction:column;gap:9px;min-width:0}
+  .field label{color:#f2eee7;font-size:.83rem;font-weight:620}.field label span{color:#a9a198;font-size:.71rem;font-weight:400}.field label .required{color:#e9bf7d;font-weight:700}
+  .field input,.field select,.field textarea{width:100%;background:#0c0d0e;border:1px solid #5a4b39;border-radius:5px;color:#f6f2ed;padding:14px 15px;font-size:.88rem;min-height:50px;outline:none;transition:border-color .2s,box-shadow .2s}
+  .field textarea{resize:vertical;min-height:140px;line-height:1.6}.field select{appearance:auto}.field select option{background:#171717;color:#fff}.field input::placeholder,.field textarea::placeholder{color:#817d75}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:#e6bd76;box-shadow:0 0 0 3px #cda35b27}.field-help{color:#a7a097;font-size:.71rem;line-height:1.5}
+  .form-bottom{display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:5px}.privacy-note{display:flex;gap:10px;align-items:flex-start;max-width:325px}.privacy-note>span{color:#ddb16e}.privacy-note p{font-size:.73rem;color:#ada69b;line-height:1.6;margin:0}.privacy-note strong{color:#e0d3bd;font-weight:600}.form-bottom button{cursor:pointer}
+  .request-aside{border:1px solid #856536;overflow:hidden;position:relative;background:radial-gradient(circle at 75% 2%,#b07b3442,transparent 44%),linear-gradient(140deg,#292116,#121212 66%);padding:41px 31px 30px;min-height:555px}.aside-orbit{position:absolute;top:-180px;right:-220px;width:385px;height:385px;border:1px solid #c59a544d;border-radius:50%;pointer-events:none}.aside-kicker{font-size:.67rem;letter-spacing:.2em;color:#f1c981;font-weight:700}
+  .request-aside h2{font-size:clamp(2rem,3.1vw,2.65rem);line-height:1.17;margin:32px 0 37px;max-width:300px}.request-aside h2 span{color:#ecc27d}.aside-steps{display:grid;gap:25px}.aside-steps>div{display:flex;align-items:start;gap:15px}.aside-steps b{color:#e9be73;font-size:.71rem;border:1px solid #9a7546;padding:8px}.aside-steps strong{font-size:.9rem;display:block;margin-bottom:7px}.aside-steps small{color:#b9af9e;font-size:.78rem;line-height:1.6;display:block}
+  .aside-contact{margin-top:49px;border-top:1px solid #6f5938;padding-top:27px}.aside-contact>small{font-size:.63rem;letter-spacing:.16em;color:#c5a36e}.aside-contact a{color:#f9d58e;display:block;margin-top:12px;font-size:.91rem;font-weight:700;text-decoration:none}.aside-contact a:hover{text-decoration:underline}.aside-contact p{margin:14px 0 0;font-size:.77rem;color:#9f9a91}
+  @media(max-width:900px){.request-grid{grid-template-columns:1fr}.request-aside{min-height:unset}.request-aside h2{max-width:none}.aside-steps{grid-template-columns:repeat(3,1fr);gap:14px}.aside-steps>div{flex-direction:column}.aside-contact{margin-top:34px}}
+  @media(max-width:620px){.request-intro__inner{padding-block:38px 60px}.request-back{margin-bottom:34px}.request-intro h1{font-size:clamp(2.45rem,10vw,3.3rem)}.request-area{padding-block:34px 80px}.form-row{grid-template-columns:1fr}.form-bottom button{width:100%}.aside-steps{grid-template-columns:1fr}.aside-steps>div{flex-direction:row}.request-aside{padding:30px 24px}.form-heading p{margin-bottom:21px}}
+</style>

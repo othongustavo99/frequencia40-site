@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="480" viewBox="0 0 760 480" role="img" aria-labelledby="title">
+<title id="title">Exemplo conceitual de conexão entre sistemas de vendas e atendimento</title>
+<defs><radialGradient id="bg"><stop stop-color="#292218"/><stop offset="1" stop-color="#0d0e0f"/></radialGradient><linearGradient id="g" x2="1" y2="1"><stop stop-color="#f6d894"/><stop offset=".55" stop-color="#b98a43"/><stop offset="1" stop-color="#e6bd6b"/></linearGradient></defs>
+<rect width="760" height="480" rx="20" fill="url(#bg)"/>
+<g fill="none" stroke="#a98045" opacity=".38" stroke-width="2"><path d="M179 139C297 139 300 226 361 226"/><path d="M179 343C297 343 293 257 361 257"/><path d="M579 139C466 139 471 226 405 226"/><path d="M579 343C466 343 476 257 405 257"/></g>
+<circle cx="382" cy="242" r="89" fill="#151719" stroke="#9e783f" stroke-width="2"/>
+<circle cx="382" cy="242" r="68" fill="none" stroke="#3e3222"/>
+<text x="382" y="231" text-anchor="middle" fill="#ecc775" font-family="Arial,sans-serif" font-weight="700" font-size="35">F40</text>
+<text x="382" y="257" text-anchor="middle" fill="#b9b3a6" font-family="Arial,sans-serif" font-size="15">INTEGRAÇÕES</text>
+<g font-family="Arial,sans-serif" font-weight="700" font-size="16" text-anchor="middle">
+<rect x="55" y="94" width="166" height="94" rx="14" fill="#1b1d20" stroke="#5b4932"/><text x="138" y="147" fill="#f3e0b8">Catálogo</text>
+<rect x="55" y="296" width="166" height="94" rx="14" fill="#1b1d20" stroke="#5b4932"/><text x="138" y="348" fill="#f3e0b8">Pedidos</text>
+<rect x="539" y="94" width="166" height="94" rx="14" fill="#1b1d20" stroke="#5b4932"/><text x="622" y="147" fill="#f3e0b8">Estoque</text>
+<rect x="539" y="296" width="166" height="94" rx="14" fill="#1b1d20" stroke="#5b4932"/><text x="622" y="348" fill="#f3e0b8">Atendimento</text>
+</g>
+<g fill="#f1cd87"><circle cx="179" cy="139" r="5"/><circle cx="179" cy="343" r="5"/><circle cx="579" cy="139" r="5"/><circle cx="579" cy="343" r="5"/></g>
+<text x="380" y="454" text-anchor="middle" fill="#807568" font-family="Arial,sans-serif" font-size="12" letter-spacing="2">CONEXÕES SOB MEDIDA</text>
+</svg>

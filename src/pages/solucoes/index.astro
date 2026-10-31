@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ConceptPreview from '../../components/ConceptPreview.astro';
+import { services, whatsappUrl } from '../../data/site';
+const examples = [
+  {
+    id: 'catalogo', number: '01', type: 'COMÉRCIO DIGITAL', title: 'Uma vitrine que acompanha o seu cliente.',
+    lead: 'Imagine sua loja com produtos organizados, fotos, preços e pedidos acessíveis pelo celular ou computador — com a identidade do seu negócio.',
+    facts: ['Catálogo navegável por categorias', 'Pedidos e consultas em poucos passos', 'Personalização para a marca', 'Possibilidade de integrar estoque e atendimento'],
+    audience: 'Lojas de roupas, calçados, acessórios e comércio em geral.',
+    subject: 'um catálogo digital ou aplicativo de vendas'
+  },
+  {
+    id: 'gestao', number: '02', type: 'GESTÃO E INDICADORES', title: 'Informação clara. Decisões mais seguras.',
+    lead: 'Uma visão organizada da operação: vendas, pedidos, produtos e movimentações. Os indicadores são definidos de acordo com os dados realmente disponíveis.',
+    facts: ['Painel de resultados e relatórios', 'Produtos e estoque em um só lugar', 'Acompanhamento de pedidos', 'Integrações quando o sistema permitir'],
+    audience: 'Comércios que desejam reduzir controles espalhados em planilhas.',
+    subject: 'sistema de gestão, estoque e relatórios'
+  },
+  {
+    id: 'atendimento', number: '03', type: 'AUTOMAÇÃO E INTEGRAÇÕES', title: 'Atendimento conectado com a sua operação.',
+    lead: 'Fluxos de atendimento que ajudam a responder perguntas comuns, consultar informações e encaminhar uma pessoa para o atendimento humano quando necessário.',
+    facts: ['Fluxos e respostas por etapa', 'Conexão com informações de produtos', 'Encaminhamento para atendimento humano', 'Implantação conforme as regras das plataformas'],
+    audience: 'Lojas e serviços que recebem muitas consultas repetidas.',
+    subject: 'automação de atendimento e integrações'
+  },
+  {
+    id: 'agenda', number: '04', type: 'AGENDAMENTO ONLINE', title: 'Mais organização, do primeiro horário ao último.',
+    lead: 'Uma agenda digital que organiza horários, disponibilidades e confirmações, com a possibilidade de incluir profissionais e lembretes.',
+    facts: ['Calendário de disponibilidades', 'Agendamento por profissional ou serviço', 'Confirmações e lembretes', 'Acesso adaptado para celular'],
+    audience: 'Salões, barbearias, oficinas e empresas com atendimento marcado.',
+    subject: 'sistema de agendamento online'
+  }
+] as const;
+---
+<BaseLayout title="Exemplos de soluções | Frequência40" description="Explore demonstrações conceituais profissionais de catálogo digital, gestão, automação e agendamentos. Soluções sob medida para o comércio de Bragança Paulista e região.">
+  <Header />
+  <main id="principal">
+    <section class="examples-hero" aria-labelledby="examples-title">
+      <div class="examples-hero__orbit" aria-hidden="true"></div>
+      <div class="container examples-hero__inner">
+        <a class="backlink" href="/">← Voltar ao início</a>
+        <span class="eyebrow">SOLUÇÕES EM PERSPECTIVA</span>
+        <h1 id="examples-title">A tecnologia toma forma.<br/><span class="highlight">Sua ideia ganha espaço.</span></h1>
+        <p>Explore interfaces e experiências que mostram como diferentes soluções podem funcionar no seu negócio. Design atual, processos mais simples e tecnologia pensada para pessoas.</p>
+        <div class="examples-hero__pills"><span>Conceitos visuais originais</span><span>Interfaces adaptáveis</span><span>Projetos sob medida</span></div>
+        <p class="examples-hero__notice"><strong>Transparência:</strong> todas as interfaces e informações desta página são demonstrações conceituais com dados fictícios. Não são capturas de produtos entregues nem ambientes operacionais.</p>
+      </div>
+    </section>
+
+    <nav class="jump-nav" aria-label="Navegar pelas demonstrações"><div class="container jump-nav__inner">
+      <span>EXPLORAR</span>
+      {examples.map(ex => <a href={`#${ex.id}`}>{ex.type.toLowerCase()}</a>)}
+    </div></nav>
+
+    <div class="examples-content">
+      {examples.map((ex, i) => (
+        <section class:list={['example-section', { 'example-section--alt': i % 2 === 1 }]} id={ex.id} aria-labelledby={`${ex.id}-title`}>
+          <div class="container example-section__grid">
+            <div class="example-section__copy">
+              <span class="example-section__overline"><span>{ex.number}</span> / {ex.type}</span>
+              <h2 id={`${ex.id}-title`}>{ex.title}</h2>
+              <p class="example-section__lead">{ex.lead}</p>
+              <ul class="example-section__list">{ex.facts.map(fact => <li><span aria-hidden="true">✓</span> {fact}</li>)}</ul>
+              <p class="example-section__audience"><strong>Para quem:</strong> {ex.audience}</p>
+              <a class="btn btn--gold" href={whatsappUrl(ex.subject)} target="_blank" rel="noopener noreferrer">Conversar sobre esta solução <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="example-section__visual"><ConceptPreview kind={ex.id} /></div>
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <section class="section more-solutions" aria-labelledby="more-title"><div class="container">
+      <div class="section-top"><div><span class="eyebrow">TAMBÉM DESENVOLVEMOS</span><h2 id="more-title" class="section-title">Muito além dos <span class="highlight">exemplos.</span></h2></div><p class="section-lead">Essas quatro experiências são pontos de partida. Conheça todas as nossas áreas de atuação — cada solicitação recebe análise de viabilidade e proposta individual.</p></div>
+      <div class="more-solutions__grid">{services.map((service) => <a href={whatsappUrl(service.name)} target="_blank" rel="noopener noreferrer"><span>{service.id}</span><strong>{service.name}</strong><span aria-hidden="true">↗</span></a>)}</div>
+    </div></section>
+
+    <section class="section examples-faq" aria-labelledby="faq-title"><div class="container faq-grid"><div><span class="eyebrow">PERGUNTAS FREQUENTES</span><h2 id="faq-title" class="section-title">Como a sua ideia<br/><span class="highlight">vira um projeto?</span></h2><p>O primeiro passo é entender o que realmente precisa ser resolvido, antes de escolher a tecnologia.</p></div><div class="faq-list">
+      <details><summary>Esses sistemas já estão disponíveis para contratar?</summary><p>As interfaces desta página são demonstrações conceituais. Nosso aplicativo de catálogo está em finalização; as demais soluções são avaliadas e desenvolvidas ou integradas conforme o escopo contratado.</p></details>
+      <details><summary>Posso contratar uma funcionalidade diferente?</summary><p>Sim. Podemos estudar necessidades personalizadas, integrações com outros sistemas e alternativas técnicas. A viabilidade depende das plataformas envolvidas e dos requisitos.</p></details>
+      <details><summary>Vocês atendem presencialmente?</summary><p>Nosso foco comercial está em Bragança Paulista e região. Podemos combinar uma conversa sobre o projeto e avaliar o formato de atendimento mais adequado.</p></details>
+      <details><summary>Como funciona um orçamento?</summary><p>Você explica o objetivo e o funcionamento atual do negócio. A partir disso, definimos requisitos, integração, cronograma, implantação e suporte em uma proposta personalizada.</p></details>
+    </div></div></section>
+    <section class="examples-cta"><div class="container examples-cta__inner"><span class="eyebrow">PROGRAMANDO O FUTURO</span><h2>O próximo exemplo<br/>pode começar com <span class="highlight">sua ideia.</span></h2><p>Conte o que seu negócio precisa. A Frequência40 ajuda a encontrar o caminho tecnológico mais adequado.</p><a class="btn btn--gold" href={whatsappUrl('um projeto de tecnologia para minha empresa')} target="_blank" rel="noopener noreferrer">Fale com a Frequência40 <span aria-hidden="true">↗</span></a></div></section>
+  </main>
+  <Footer />
+</BaseLayout>
+<style>
+.examples-hero{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 80% 35%,#56402132,transparent 52%),#090a0b;border-bottom:1px solid #3d3021}.examples-hero__orbit{position:absolute;width:560px;height:560px;right:-360px;top:-370px;border:1px solid #d0a45b6d;border-radius:50%;z-index:-1;box-shadow:0 0 0 85px #bb8b3320,0 0 0 200px #d09e4210}.examples-hero__inner{padding-block:75px 92px;max-width:1180px}.backlink{display:block;width:max-content;text-decoration:none;color:#b5a88e;font-size:.8rem;margin-bottom:46px}.backlink:hover{color:var(--gold-light)}.examples-hero h1{font-size:clamp(2.7rem,6.7vw,6.15rem);max-width:980px;line-height:1.08;margin:25px 0 26px;letter-spacing:-.065em}.examples-hero p:not(.examples-hero__notice){font-size:1rem;color:#bab7b0;max-width:700px;line-height:1.8}.examples-hero__pills{display:flex;gap:9px;flex-wrap:wrap;margin-top:25px}.examples-hero__pills span{border:1px solid #574831;border-radius:30px;padding:10px 13px;font-size:.73rem;color:#d2c4ab}.examples-hero__notice{border-left:2px solid #c99b4e;background:#c99b4e0a;padding:12px 17px;color:#c4b8a8;font-size:.78rem;line-height:1.65;margin:37px 0 0;max-width:730px}.examples-hero__notice strong{color:#ead1a3}
+.jump-nav{position:sticky;top:84px;z-index:30;background:#141313f2;backdrop-filter:blur(12px);border-bottom:1px solid #413323}.jump-nav__inner{display:flex;align-items:center;gap:23px;min-height:58px;overflow-x:auto;scrollbar-width:thin}.jump-nav span{font-size:.6rem;letter-spacing:.17em;color:#e4b979;font-weight:800}.jump-nav a{white-space:nowrap;color:#c8c5c0;font-size:.74rem;text-transform:capitalize;text-decoration:none}.jump-nav a:hover{color:var(--gold-light)}.examples-content{background:#0c0d0e}.example-section{padding-block:97px;border-bottom:1px solid #2d2922}.example-section--alt{background:#121314}.example-section__grid{display:grid;grid-template-columns:.73fr 1.27fr;gap:clamp(25px,5vw,75px);align-items:center}.example-section--alt .example-section__copy{order:2}.example-section--alt .example-section__visual{order:1}.example-section__visual{min-width:0}.example-section__overline{font-size:.66rem;font-weight:730;color:#d8b26e;letter-spacing:.18em}.example-section__overline span{font-size:.8rem}.example-section h2{font-size:clamp(2rem,3.8vw,3.5rem);line-height:1.13;letter-spacing:-.055em;margin:19px 0 24px}.example-section__lead{font-size:.96rem;line-height:1.85;color:#b9b7b1}.example-section__list{list-style:none;padding:0;display:grid;gap:13px;margin:26px 0}.example-section__list li{display:flex;gap:12px;align-items:start;font-size:.83rem;line-height:1.55;color:#dbd8d1}.example-section__list li span{color:#e2b878}.example-section__audience{font-size:.82rem;color:#a6a29a;line-height:1.7;margin:0 0 29px}.example-section__audience strong{color:#dcc9a5}.example-section__copy .btn{font-size:.77rem}
+.more-solutions{background:#090a0b}.more-solutions__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.more-solutions__grid a{display:flex;align-items:center;gap:13px;padding:21px 18px;background:#151616;border:1px solid #443727;min-height:80px;text-decoration:none;transition:border-color .2s,background .2s}.more-solutions__grid a:hover{border-color:#c79f64;background:#1c1a17}.more-solutions__grid a span:first-child{font-size:.67rem;color:#bd9760}.more-solutions__grid a strong{font-size:.8rem;font-weight:600;flex:1}.more-solutions__grid a span:last-child{color:#dfb975}
+.examples-faq{background:#121211;border-top:1px solid #473826}.faq-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:80px}.faq-grid p{color:#aaa6a0;line-height:1.8}.faq-list{border-top:1px solid #453b30}.faq-list details{border-bottom:1px solid #453b30}.faq-list summary{display:flex;justify-content:space-between;gap:18px;padding:23px 0;cursor:pointer;font-size:.94rem;font-weight:660;list-style:none}.faq-list summary::-webkit-details-marker{display:none}.faq-list summary:after{content:'+';color:#d9ad67;font-size:22px;line-height:1}.faq-list details[open] summary:after{content:'−'}.faq-list details p{font-size:.85rem;margin:0 0 23px}.examples-cta{background:radial-gradient(ellipse at 50% 100%,#79562d40,transparent 70%),#090909;text-align:center;border-top:1px solid #3b3021}.examples-cta__inner{padding-block:110px 115px}.examples-cta .eyebrow:before{display:none}.examples-cta h2{font-size:clamp(2.6rem,5vw,4.5rem);line-height:1.12;margin:20px 0}.examples-cta p{color:#bbb3a6;max-width:550px;margin:0 auto 30px;line-height:1.7}.examples-cta .btn{margin:auto}
+@media(max-width:960px){.example-section__grid{grid-template-columns:1fr;gap:30px}.example-section--alt .example-section__copy,.example-section--alt .example-section__visual{order:initial}.example-section h2{max-width:620px}.example-section__lead{max-width:690px}.more-solutions__grid{grid-template-columns:repeat(2,minmax(0,1fr))}.faq-grid{gap:35px}}
+@media(max-width:820px){.jump-nav{top:74px}}
+@media(max-width:650px){.examples-hero__inner{padding-block:48px 65px}.backlink{margin-bottom:35px}.examples-hero h1{font-size:clamp(2.4rem,10vw,3.6rem)}.example-section{padding-block:62px}.more-solutions__grid{grid-template-columns:1fr}.more-solutions__grid a{min-height:62px;padding:16px}.faq-grid{grid-template-columns:1fr}.jump-nav__inner{gap:17px}.jump-nav__inner span{display:none}.examples-cta__inner{padding-block:80px}.examples-cta h2{font-size:2.45rem}}
+</style>

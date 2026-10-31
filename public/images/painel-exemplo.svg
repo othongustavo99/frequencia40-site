@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="480" viewBox="0 0 760 480" role="img" aria-labelledby="title">
+<title id="title">Exemplo conceitual de painel gerencial com indicadores e gráficos</title>
+<defs>
+ <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#1d1c1a"/><stop offset="1" stop-color="#0b0c0e"/></linearGradient>
+ <linearGradient id="gold" x2="1"><stop stop-color="#8c6429"/><stop offset=".65" stop-color="#f6d58f"/><stop offset="1" stop-color="#b78943"/></linearGradient>
+ <linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#d3a459" stop-opacity=".25"/><stop offset="1" stop-color="#d3a459" stop-opacity="0"/></linearGradient>
+</defs>
+<rect width="760" height="480" rx="20" fill="url(#bg)"/>
+<rect x="46" y="46" width="668" height="388" rx="14" fill="#121416" stroke="#49402f"/>
+<rect x="46" y="46" width="139" height="388" rx="14" fill="#17191a"/>
+<path d="M185 46V434" stroke="#3a3022"/>
+<text x="70" y="85" fill="#e9c47d" font-family="Arial,sans-serif" font-size="20" font-weight="700">F40</text>
+<text x="70" y="133" fill="#bdb7ad" font-family="Arial,sans-serif" font-size="12">Visão geral</text>
+<rect x="62" y="148" width="108" height="29" rx="5" fill="#41321b"/>
+<text x="75" y="167" fill="#e9ca8d" font-family="Arial,sans-serif" font-size="11">Indicadores</text>
+<text x="70" y="220" fill="#918c83" font-family="Arial,sans-serif" font-size="11">Produtos</text>
+<text x="70" y="260" fill="#918c83" font-family="Arial,sans-serif" font-size="11">Pedidos</text>
+<text x="70" y="300" fill="#918c83" font-family="Arial,sans-serif" font-size="11">Relatórios</text>
+<text x="208" y="84" fill="#f7f1e6" font-family="Arial,sans-serif" font-size="18" font-weight="700">Visão do negócio</text>
+<text x="208" y="105" fill="#89847a" font-family="Arial,sans-serif" font-size="10">Demonstração ilustrativa</text>
+<rect x="208" y="123" width="154" height="93" rx="9" fill="#1d1e1e" stroke="#36332e"/>
+<rect x="373" y="123" width="154" height="93" rx="9" fill="#1d1e1e" stroke="#36332e"/>
+<rect x="538" y="123" width="154" height="93" rx="9" fill="#1d1e1e" stroke="#36332e"/>
+<text x="225" y="148" fill="#9e998f" font-family="Arial,sans-serif" font-size="11">Pedidos</text><text x="225" y="186" fill="#f7f1e6" font-family="Arial,sans-serif" font-weight="700" font-size="28">128</text>
+<text x="390" y="148" fill="#9e998f" font-family="Arial,sans-serif" font-size="11">Produtos</text><text x="390" y="186" fill="#f7f1e6" font-family="Arial,sans-serif" font-weight="700" font-size="28">346</text>
+<text x="555" y="148" fill="#9e998f" font-family="Arial,sans-serif" font-size="11">Atendimento</text><text x="555" y="186" fill="#f7f1e6" font-family="Arial,sans-serif" font-weight="700" font-size="28">24 h</text>
+<rect x="208" y="233" width="484" height="177" rx="9" fill="#1b1c1d" stroke="#36332e"/>
+<text x="227" y="259" fill="#d8d0c0" font-family="Arial,sans-serif" font-size="13">Movimentação</text>
+<g stroke="#38352e" stroke-width="1"><path d="M231 292H669M231 328H669M231 364H669M231 394H669"/></g>
+<path d="M231 370 C270 359 282 373 319 349S392 356 429 330 481 343 523 312 586 324 625 288 654 281 668 274 V395H231Z" fill="url(#area)"/>
+<path d="M231 370 C270 359 282 373 319 349S392 356 429 330 481 343 523 312 586 324 625 288 654 281 668 274" fill="none" stroke="url(#gold)" stroke-width="4" stroke-linecap="round"/>
+<circle cx="668" cy="274" r="6" fill="#efc77a" stroke="#8c6429" stroke-width="2"/>
+</svg>

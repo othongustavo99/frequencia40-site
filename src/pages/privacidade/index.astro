@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { whatsappUrl } from '../../data/site';
+---
+<BaseLayout title="Privacidade | Frequência40" description="Como funciona o contato pelo site da Frequência40 e quais dados podem ser tratados por serviços externos.">
+  <Header />
+  <main id="principal" class="policy-main">
+    <div class="container policy-wrap">
+      <a class="policy-back" href="/">← Voltar ao início</a>
+      <span class="eyebrow">TRANSPARÊNCIA</span>
+      <h1>Privacidade e <span class="highlight">contato.</span></h1>
+      <p class="policy-lead">Este é o site institucional da Frequência40. Nosso objetivo é apresentar serviços de tecnologia e facilitar o contato com a empresa.</p>
+      <div class="policy-content">
+        <section aria-labelledby="dados"><h2 id="dados">Informações enviadas pelo formulário</h2><p>O formulário de orçamento funciona no seu próprio navegador. Os campos preenchidos são usados para montar uma mensagem e abrir o WhatsApp. O site não recebe nem armazena essas respostas em um banco de dados.</p></section>
+        <section aria-labelledby="contato"><h2 id="contato">Contato pelo WhatsApp</h2><p>Ao continuar para o WhatsApp, você passa a utilizar uma plataforma de terceiros. As mensagens que você decidir enviar serão recebidas pelo canal de atendimento da Frequência40 e estarão sujeitas às práticas de privacidade do WhatsApp.</p></section>
+        <section aria-labelledby="analise"><h2 id="analise">Cookies e métricas</h2><p>Esta versão do site não inclui cookies de publicidade, scripts de rastreamento ou ferramentas de análise de visitantes. O provedor de hospedagem, quando escolhido, poderá processar informações técnicas necessárias à operação e segurança, como endereços IP e registros de acesso.</p></section>
+        <section aria-labelledby="protecao"><h2 id="protecao">Compartilhamento e segurança</h2><p>Evite enviar senhas, documentos confidenciais ou outros dados sensíveis nos campos de orçamento. Após o contato, o tratamento de dados necessários à prestação de um serviço poderá ser explicado e acordado conforme o projeto.</p></section>
+        <section aria-labelledby="duvidas"><h2 id="duvidas">Dúvidas sobre privacidade</h2><p>Você pode solicitar informações sobre os dados compartilhados no atendimento pelo nosso canal de contato.</p><a class="btn btn--gold" href={whatsappUrl('uma dúvida sobre privacidade')} target="_blank" rel="noopener noreferrer">Falar pelo WhatsApp ↗</a></section>
+      </div>
+      <p class="policy-update">Esta política descreve a versão atual do site e deverá ser revista caso novas integrações ou ferramentas de análise sejam adicionadas.</p>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
+<style>
+  .policy-main{background:radial-gradient(ellipse at 87% 0%,#61472228,transparent 50%),#0c0c0c}.policy-wrap{max-width:880px;padding-block:63px 103px}.policy-back{display:block;width:max-content;margin-bottom:53px;color:#b6a993;text-decoration:none;font-size:.83rem}.policy-back:hover{color:#f1ca89}
+  .policy-wrap h1{font-size:clamp(2.7rem,7vw,5rem);line-height:1.06;letter-spacing:-.065em;margin:22px 0}.policy-lead{color:#c3bfb8;font-size:1.02rem;line-height:1.8;max-width:730px}
+  .policy-content{margin-top:47px;border-top:1px solid #51402b}.policy-content section{padding:31px 0;border-bottom:1px solid #44372b}.policy-content h2{font-size:1.34rem;letter-spacing:-.035em;margin-bottom:12px}.policy-content p{line-height:1.84;color:#b6b0a9;font-size:.93rem;margin:0;max-width:780px}.policy-content .btn{margin-top:20px}.policy-update{font-size:.77rem;color:#8f8a81;margin-top:35px;line-height:1.7}
+  @media(max-width:650px){.policy-wrap{padding-block:40px 75px}.policy-back{margin-bottom:38px}.policy-content section{padding-block:25px}}
+</style>

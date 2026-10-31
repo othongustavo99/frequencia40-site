@@ -1,0 +1,65 @@
+---
+import BrandLogo from './BrandLogo.astro';
+const links = [
+  { label: 'Início', to: '/' },
+  { label: 'Serviços', to: '/#servicos' },
+  { label: 'Demonstrações', to: '/solucoes/' },
+  { label: 'Catálogo digital', to: '/#catalogo' },
+  { label: 'Sobre nós', to: '/#sobre' },
+];
+---
+<header class="site-header">
+  <div class="container header__inner">
+    <BrandLogo />
+    <nav class="desktop-nav" aria-label="Navegação principal">
+      {links.map((link) => <a href={link.to}>{link.label}</a>)}
+    </nav>
+    <a class="header__contact" href="/orcamento/">Solicitar orçamento <span aria-hidden="true">↗</span></a>
+    <details class="mobile-nav">
+      <summary aria-label="Abrir ou fechar menu de navegação"><span class="menu-lines" aria-hidden="true"></span><span class="sr-only">Menu</span></summary>
+      <nav aria-label="Navegação móvel">
+        {links.map((link) => <a href={link.to}>{link.label}</a>)}
+        <a href="/orcamento/">Solicitar orçamento ↗</a>
+      </nav>
+    </details>
+  </div>
+</header>
+<style>
+  .site-header{position:sticky;top:0;z-index:50;background:rgba(9,10,11,.91);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(216,170,90,.11)}
+  .header__inner{height:84px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+  .desktop-nav{display:flex;align-items:center;gap:clamp(11px,1.8vw,27px)}
+  .desktop-nav a{font-size:.82rem;color:#b8b8b8;text-decoration:none;transition:color .2s}
+  .desktop-nav a:hover,.desktop-nav a:focus-visible{color:var(--gold-light)}
+  .header__contact{border:1px solid rgba(223,176,92,.5);padding:12px 17px;border-radius:3px;letter-spacing:.015em;color:var(--gold-light);font-weight:650;font-size:.76rem;white-space:nowrap;text-decoration:none;transition:background .2s,border .2s}
+  .header__contact:hover{background:rgba(207,165,85,.12);border-color:var(--gold-light)}
+  .header__contact span{margin-left:6px}
+  .mobile-nav{display:none;position:relative}
+  .mobile-nav summary{list-style:none;display:grid;place-items:center;width:43px;height:43px;border:1px solid #4a3a24;border-radius:4px;cursor:pointer;color:var(--gold-light)}
+  .mobile-nav summary::-webkit-details-marker{display:none}
+  .menu-lines{display:block;width:19px;height:14px;border-top:2px solid currentColor;border-bottom:2px solid currentColor;position:relative}
+  .menu-lines:after{content:'';position:absolute;top:5px;width:19px;border-top:2px solid currentColor;left:0}
+  .mobile-nav[open] .menu-lines{border:0;width:19px;height:19px}
+  .mobile-nav[open] .menu-lines:before,.mobile-nav[open] .menu-lines:after{content:'';position:absolute;top:9px;left:0;width:19px;border-top:2px solid currentColor;transform:rotate(45deg)}
+  .mobile-nav[open] .menu-lines:after{transform:rotate(-45deg)}
+  .mobile-nav nav{position:absolute;right:0;top:55px;display:grid;min-width:min(290px,calc(100vw - 32px));padding:12px;background:#161615;border:1px solid #56442a;box-shadow:0 20px 50px #000b;border-radius:8px}
+  .mobile-nav nav a{padding:13px;text-decoration:none;color:#f5f0e7;border-radius:4px}
+  .mobile-nav nav a:hover{background:#2a241c}
+  @media(max-width:1000px){.desktop-nav{gap:14px}.desktop-nav a{font-size:.77rem}.header__contact{display:none}}
+  @media(max-width:820px){.desktop-nav{display:none}.mobile-nav{display:block}.header__inner{height:74px}}
+</style>
+
+<script>
+  const menu = document.querySelector<HTMLDetailsElement>('.mobile-nav');
+  menu?.querySelectorAll<HTMLAnchorElement>('nav a').forEach((link) => {
+    link.addEventListener('click', () => { menu.open = false; });
+  });
+  document.addEventListener('pointerdown', (event) => {
+    if (menu?.open && event.target instanceof Node && !menu.contains(event.target)) menu.open = false;
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menu?.open) {
+      menu.open = false;
+      menu.querySelector<HTMLElement>('summary')?.focus();
+    }
+  });
+</script>

@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<BaseLayout title="Página não encontrada | Frequência40" description="A página procurada não foi encontrada. Explore as soluções da Frequência40." noindex={true}>
+  <Header />
+  <main id="principal" class="not-found">
+    <div class="container not-found__content">
+      <span class="eyebrow">CAMINHO NÃO ENCONTRADO</span>
+      <span class="not-found__number" aria-hidden="true">404</span>
+      <h1>Essa página ficou <span class="highlight">fora de alcance.</span></h1>
+      <p>Mas a próxima solução está a um clique de distância.</p>
+      <div class="not-found__links"><a class="btn btn--gold" href="/">Voltar ao início ↗</a><a class="btn btn--ghost" href="/solucoes/">Conhecer soluções</a></div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
+<style>
+.not-found{display:grid;place-items:center;min-height:65vh;text-align:center;overflow:hidden;background:radial-gradient(ellipse at 50% 30%,#9f753421,transparent 58%),#0b0c0c}.not-found__content{padding-block:90px}.not-found__number{display:block;font-size:clamp(6rem,17vw,14rem);line-height:1;letter-spacing:-.1em;font-weight:800;color:#c5994b22;margin:20px 0 -18px}.not-found h1{font-size:clamp(2.1rem,5vw,4.2rem);line-height:1.16;letter-spacing:-.055em;max-width:700px;margin:0 auto 20px}.not-found p{color:#b3aba0;line-height:1.8}.not-found__links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:31px}
+</style>

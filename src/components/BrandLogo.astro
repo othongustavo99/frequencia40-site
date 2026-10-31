@@ -1,0 +1,35 @@
+---
+interface Props { compact?: boolean; inverse?: boolean; }
+const { compact = false } = Astro.props;
+---
+<a href="/" class:list={['brand', { 'brand--compact': compact }]} aria-label="Frequência40 — voltar ao início">
+  <svg class="brand__symbol" viewBox="0 0 88 70" role="img" aria-label="Símbolo F40" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="logo-metal" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#FFF0BC"/>
+        <stop offset=".31" stop-color="#E9BF68"/>
+        <stop offset=".66" stop-color="#BC8638"/>
+        <stop offset="1" stop-color="#F8D88D"/>
+      </linearGradient>
+    </defs>
+    <path d="M10 60V17C10 7 15 4 24 4H61L53 14H26c-4 0-6 2-6 6v10h29l-9 11H20v10L10 60Z" fill="url(#logo-metal)"/>
+    <path d="M40 24h18l-7 9H33z" fill="url(#logo-metal)"/>
+    <path d="M40 51 53 35h5L48 49h10v-7h5v7h5v5h-5v9h-5v-9H40Z" fill="url(#logo-metal)"/>
+    <path d="M65 35a19 19 0 1 1-.2 28.5" fill="none" stroke="url(#logo-metal)" stroke-width="5" stroke-linecap="round"/>
+    <path d="M62 12a33 33 0 0 1 22 39" fill="none" stroke="url(#logo-metal)" stroke-width="1.6" opacity=".85"/>
+  </svg>
+  <span class="brand__text">
+    <span class="brand__name">Frequência<span>40</span></span>
+    <span class="brand__descriptor">DESENVOLVIMENTO E TECNOLOGIA</span>
+  </span>
+</a>
+<style>
+  .brand{display:inline-flex;align-items:center;gap:.65rem;text-decoration:none;flex:none;color:var(--white)}
+  .brand__symbol{width:49px;height:42px;overflow:visible;flex:none}
+  .brand__text{display:flex;flex-direction:column;gap:2px}
+  .brand__name{font-size:1.24rem;line-height:1;letter-spacing:-.055em;font-weight:760}
+  .brand__name span{color:var(--gold-light)}
+  .brand__descriptor{font-size:.47rem;letter-spacing:.19em;font-weight:650;color:#d1c7b9;white-space:nowrap}
+  .brand--compact .brand__symbol{width:45px;height:38px}
+  @media(max-width:390px){.brand__symbol{width:43px}.brand__name{font-size:1.1rem}.brand__descriptor{font-size:.41rem}}
+</style>

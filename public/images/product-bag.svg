@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 174" role="img" aria-label="Ilustração de bolsa">
+<defs><linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#e8d8c2"/><stop offset="1" stop-color="#d5b99b"/></linearGradient><linearGradient id="bag" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#8c5941"/><stop offset=".5" stop-color="#6a3b2d"/><stop offset="1" stop-color="#4c291f"/></linearGradient></defs>
+<rect width="180" height="174" fill="url(#bg)"/><circle cx="138" cy="45" r="60" fill="#f7e9d4" opacity=".26"/><ellipse cx="88" cy="145" rx="56" ry="10" fill="#523122" opacity=".13"/>
+<path d="M62 66v-9c0-17 11-28 28-28s28 11 28 28v9" fill="none" stroke="#764936" stroke-width="9"/><path d="M65 66v-9c0-15 9-24 25-24s25 9 25 24v9" fill="none" stroke="#ba8a64" stroke-width="3"/>
+<path d="M38 67c0-6 5-11 11-11h82c6 0 11 5 11 11l7 61c1 8-5 14-13 14H44c-8 0-14-6-13-14Z" fill="url(#bag)" stroke="#633625" stroke-width="2"/><path d="M39 75c35 5 67 5 103 0" fill="none" stroke="#b87d61" opacity=".5"/><path d="M87 67h6v17h-6z" fill="#b9925b"/><path d="M83 82h14v4H83z" fill="#d6af73"/><path d="M42 132h95" stroke="#a27157" opacity=".35"/>
+</svg>

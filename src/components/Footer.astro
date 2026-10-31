@@ -1,0 +1,26 @@
+---
+import BrandLogo from './BrandLogo.astro';
+import { company, whatsappUrl } from '../data/site';
+---
+<footer class="footer">
+  <div class="container footer__main">
+    <div class="footer__brand"><BrandLogo compact /><p>Tecnologia que conecta ideias, pessoas e negócios. Soluções sob medida para a sua próxima conquista.</p></div>
+    <div class="footer__nav"><span>EXPLORAR</span><a href="/#servicos">Serviços</a><a href="/solucoes/">Exemplos de soluções</a><a href="/orcamento/">Solicitar orçamento</a><a href="/#catalogo">Catálogo digital</a><a href="/#sobre">Sobre nós</a></div>
+    <div class="footer__nav"><span>FALE COM A GENTE</span><a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">WhatsApp: {company.whatsappDisplay} ↗</a><span class="footer__location">Bragança Paulista · SP</span><a href="/privacidade/">Privacidade</a></div>
+  </div>
+  <div class="container footer__bottom"><span>© {new Date().getFullYear()} Frequência40. Todos os direitos reservados.</span><span>PROGRAMANDO O FUTURO <span class="footer__star">✳</span></span></div>
+</footer>
+<style>
+.footer{background:#090909;border-top:1px solid #372b1a;padding-top:65px}
+.footer__main{display:grid;grid-template-columns:1.5fr .8fr 1fr;gap:60px;padding-bottom:58px}
+.footer__brand p{font-size:.88rem;color:var(--muted);max-width:330px;line-height:1.8;margin:24px 0 0}
+.footer__nav{display:flex;flex-direction:column;gap:15px}
+.footer__nav>span:first-child{font-size:.66rem;letter-spacing:.23em;font-weight:700;color:var(--gold)}
+.footer__nav a{font-size:.87rem;color:#c8c8c8;text-decoration:none}
+.footer__nav a:hover{color:var(--gold-light)}
+.footer__location{font-size:.87rem;color:#aaa}
+.footer__bottom{border-top:1px solid #292620;padding-block:22px;display:flex;justify-content:space-between;gap:16px;color:#8e8a80;font-size:.7rem}
+.footer__bottom>span:last-child{letter-spacing:.16em}.footer__star{color:var(--gold)}
+@media(max-width:800px){.footer{padding-top:45px}.footer__main{grid-template-columns:1fr 1fr;gap:35px}.footer__brand{grid-column:1/-1}.footer__bottom{flex-wrap:wrap}}
+@media(max-width:480px){.footer__main{grid-template-columns:1fr 1fr;gap:28px}.footer__nav a{font-size:.78rem}.footer__bottom{font-size:.62rem}}
+</style>
