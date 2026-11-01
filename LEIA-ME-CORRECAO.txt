@@ -1,0 +1,15 @@
+CORREÇÃO DO BUILD /solucoes
+
+Erro: ReferenceError: AppStoreDemoPair is not defined
+Causa: o import estava fora do frontmatter Astro em ConceptPreview.astro.
+Solução: substitua src/components/ConceptPreview.astro pelo arquivo do ZIP.
+As duas telas continuam lado a lado, no mesmo tamanho, nos três pontos.
+
+Para verificar no terminal do projeto:
+npm run build
+npm run dev
+
+Para publicar:
+git add .
+git commit -m "fix: importar AppStoreDemoPair corretamente"
+git push origin main

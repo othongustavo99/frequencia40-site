@@ -1,0 +1,213 @@
+---
+interface Props {
+  variant?: 'hero' | 'section';
+  showBadge?: boolean;
+  showCaptions?: boolean;
+}
+
+const {
+  variant = 'section',
+  showBadge = false,
+  showCaptions = true,
+} = Astro.props;
+---
+
+<div class:list={['app-demo-pair', `app-demo-pair--${variant}`]} aria-label="Duas telas demonstrativas do aplicativo de loja, lado a lado: vitrine do cliente e painel administrativo, com dados fictícios.">
+  <span class="app-demo-pair__ring app-demo-pair__ring--outer" aria-hidden="true"></span>
+  <span class="app-demo-pair__ring app-demo-pair__ring--inner" aria-hidden="true"></span>
+
+  <div class="app-demo-pair__grid">
+    <a class="app-demo-pair__item app-demo-pair__item--client" href="/images/catalogo-cliente-real.webp" target="_blank" rel="noopener noreferrer" aria-label="Ampliar a tela da vitrine do cliente em nova aba">
+      <span class="app-demo-pair__device">
+        <img src="/images/catalogo-cliente-real.webp" width="540" height="1086" loading={variant === 'hero' ? 'eager' : 'lazy'} decoding="async" alt="Tela demonstrativa da vitrine do cliente com busca, banner, produtos em destaque e categorias" />
+      </span>
+      {showCaptions && (
+        <span class="app-demo-pair__caption">
+          <strong>Experiência de compra</strong>
+          <span>Vitrine do cliente <span aria-hidden="true">↗</span></span>
+        </span>
+      )}
+    </a>
+
+    <a class="app-demo-pair__item app-demo-pair__item--admin" href="/images/catalogo-admin-real.webp" target="_blank" rel="noopener noreferrer" aria-label="Ampliar a tela do painel administrativo em nova aba">
+      <span class="app-demo-pair__device">
+        <img src="/images/catalogo-admin-real.webp" width="540" height="1096" loading={variant === 'hero' ? 'eager' : 'lazy'} decoding="async" alt="Tela demonstrativa do painel administrativo com estoque, pedidos e indicadores de vendas" />
+      </span>
+      {showCaptions && (
+        <span class="app-demo-pair__caption">
+          <strong>Controle da loja</strong>
+          <span>Painel administrativo <span aria-hidden="true">↗</span></span>
+        </span>
+      )}
+    </a>
+  </div>
+
+  {showBadge && (
+    <div class="app-demo-pair__badge">
+      <span class="app-demo-pair__badge-icon" aria-hidden="true">✦</span>
+      <span>Projeto em destaque<strong>Catálogo digital</strong></span>
+    </div>
+  )}
+
+  <span class="app-demo-pair__footnote">TELAS DEMONSTRATIVAS • DADOS FICTÍCIOS</span>
+</div>
+
+<style>
+  .app-demo-pair{
+    position:relative;
+    width:100%;
+    min-width:0;
+    padding:18px 6px 46px;
+    isolation:isolate;
+  }
+
+  .app-demo-pair__ring{
+    position:absolute;
+    inset:auto;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    border:1px solid rgba(208,164,91,.18);
+    border-radius:50%;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .app-demo-pair__ring--outer{width:min(100%,520px);height:min(100%,520px);aspect-ratio:1;box-shadow:0 0 0 70px rgba(208,164,91,.05)}
+  .app-demo-pair__ring--inner{width:min(72%,360px);height:min(72%,360px);aspect-ratio:1;border-color:rgba(208,164,91,.14)}
+
+  .app-demo-pair__grid{
+    position:relative;
+    z-index:1;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:clamp(10px,2.2vw,24px);
+    align-items:start;
+    width:min(100%,560px);
+    margin:0 auto;
+  }
+
+  .app-demo-pair__item{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:13px;
+    min-width:0;
+    color:#f4efe7;
+    text-decoration:none;
+    outline-offset:4px;
+  }
+
+  .app-demo-pair__item--client{transform:rotate(-3.8deg) translateY(10px)}
+  .app-demo-pair__item--admin{transform:rotate(3.8deg) translateY(-2px)}
+
+  .app-demo-pair__device{
+    display:block;
+    width:100%;
+    min-width:0;
+    padding:6px;
+    border-radius:30px;
+    background:linear-gradient(145deg,#4b443c 0%,#181818 18%,#080808 78%,#9a7448 100%);
+    box-shadow:0 24px 45px rgba(0,0,0,.42),0 0 0 1px rgba(240,199,126,.22);
+  }
+
+  .app-demo-pair__device img{
+    display:block;
+    width:100%;
+    height:auto;
+    aspect-ratio:540 / 1090;
+    object-fit:cover;
+    border-radius:24px;
+    background:#faf7f2;
+  }
+
+  .app-demo-pair__caption{
+    display:grid;
+    gap:4px;
+    width:100%;
+    text-align:center;
+    line-height:1.3;
+  }
+
+  .app-demo-pair__caption strong{font-size:.83rem;font-weight:760;color:#fff}
+  .app-demo-pair__caption > span{font-size:.68rem;color:#e0c189}
+
+  .app-demo-pair__badge{
+    position:absolute;
+    right:8px;
+    bottom:40px;
+    z-index:2;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 15px;
+    background:rgba(16,16,16,.92);
+    border:1px solid rgba(216,168,83,.45);
+    border-radius:14px;
+    color:#ada395;
+    font-size:.68rem;
+    box-shadow:0 18px 30px rgba(0,0,0,.34);
+  }
+
+  .app-demo-pair__badge strong{display:block;color:#fff;font-size:.86rem;margin-top:2px}
+  .app-demo-pair__badge-icon{font-size:1.25rem;color:var(--gold-light)}
+
+  .app-demo-pair__footnote{
+    position:absolute;
+    left:50%;
+    bottom:4px;
+    transform:translateX(-50%);
+    width:100%;
+    text-align:center;
+    font-size:.55rem;
+    letter-spacing:.16em;
+    color:#b49f79;
+    white-space:nowrap;
+    z-index:1;
+  }
+
+  .app-demo-pair--hero{
+    max-width:620px;
+    margin:0 auto;
+    padding-bottom:58px;
+  }
+
+  .app-demo-pair--hero .app-demo-pair__grid{width:min(100%,590px)}
+  .app-demo-pair--hero .app-demo-pair__device{padding:7px;border-radius:32px}
+  .app-demo-pair--hero .app-demo-pair__caption{display:none}
+  .app-demo-pair--hero .app-demo-pair__item--client{transform:rotate(-4deg) translateY(14px)}
+  .app-demo-pair--hero .app-demo-pair__item--admin{transform:rotate(4deg) translateY(0)}
+
+  @media (hover:hover) and (prefers-reduced-motion:no-preference){
+    .app-demo-pair__item{transition:transform .25s ease}
+    .app-demo-pair__item:hover.app-demo-pair__item--client{transform:rotate(-3.8deg) translateY(2px)}
+    .app-demo-pair__item:hover.app-demo-pair__item--admin{transform:rotate(3.8deg) translateY(-10px)}
+    .app-demo-pair--hero .app-demo-pair__item:hover.app-demo-pair__item--client{transform:rotate(-4deg) translateY(6px)}
+    .app-demo-pair--hero .app-demo-pair__item:hover.app-demo-pair__item--admin{transform:rotate(4deg) translateY(-8px)}
+  }
+
+  @media(max-width:700px){
+    .app-demo-pair{padding-bottom:44px}
+    .app-demo-pair__caption strong{font-size:.75rem}
+    .app-demo-pair__caption > span{font-size:.62rem}
+  }
+
+  @media(max-width:520px){
+    .app-demo-pair{padding:10px 0 44px}
+    .app-demo-pair__grid{gap:9px;width:min(100%,360px)}
+    .app-demo-pair__device{padding:4px;border-radius:20px}
+    .app-demo-pair__device img{border-radius:15px}
+    .app-demo-pair__item--client{transform:rotate(-3deg) translateY(6px)}
+    .app-demo-pair__item--admin{transform:rotate(3deg) translateY(0)}
+    .app-demo-pair__caption{gap:3px}
+    .app-demo-pair__caption strong{font-size:.66rem}
+    .app-demo-pair__caption > span{font-size:.55rem}
+    .app-demo-pair__badge{right:0;bottom:38px;padding:9px 11px;gap:8px;border-radius:12px;font-size:.6rem}
+    .app-demo-pair__badge strong{font-size:.76rem}
+    .app-demo-pair__badge-icon{font-size:1rem}
+    .app-demo-pair__footnote{font-size:.45rem;letter-spacing:.12em;white-space:normal;line-height:1.35;padding-inline:10px}
+    .app-demo-pair__ring--outer{box-shadow:0 0 0 40px rgba(208,164,91,.05)}
+    .app-demo-pair--hero{padding-bottom:52px}
+    .app-demo-pair--hero .app-demo-pair__grid{width:min(100%,365px)}
+  }
+</style>

@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ServiceIcon from '../components/ServiceIcon.astro';
 import ExperienceShowcase from '../components/ExperienceShowcase.astro';
+import AppStoreDemoPair from '../components/AppStoreDemoPair.astro';
 import { company, services, whatsappUrl } from '../data/site';
 ---
 <BaseLayout title="Frequência40 | Desenvolvimento e Tecnologia — Programando o Futuro" structuredData={true}>
@@ -28,16 +29,7 @@ import { company, services, whatsappUrl } from '../data/site';
         <div class="hero__scene" data-reveal aria-label="Apresentação visual com duas telas demonstrativas do catálogo digital e do painel administrativo">
           <div class="hero__orbit hero__orbit--outer" aria-hidden="true"></div>
           <div class="hero__orbit hero__orbit--inner" aria-hidden="true"></div>
-          <div class="hero-showcase">
-            <div class="hero-showcase__desktop">
-              <img src="/images/catalogo-vitrine-premium.png" width="1536" height="1152" loading="eager" decoding="async" alt="Tela demonstrativa da vitrine do cliente com pesquisa, coleção, produtos e categorias" />
-            </div>
-            <div class="hero-showcase__mobile">
-              <img src="/images/catalogo-painel-administrativo.webp" width="540" height="1096" loading="eager" decoding="async" alt="Tela demonstrativa do painel administrativo com estoque, pedidos e indicadores de vendas" />
-            </div>
-          </div>
-          <div class="scene-badge"><span class="scene-badge__icon" aria-hidden="true">✦</span><span>Projeto em destaque<strong>Catálogo digital</strong></span></div>
-          <span class="hero__visualnote">TELAS DEMONSTRATIVAS • DADOS FICTÍCIOS</span>
+          <AppStoreDemoPair variant="hero" showBadge={true} showCaptions={false} />
         </div>
       </div>
       <div class="hero__scroll" aria-hidden="true">EXPLORE <span></span></div>
@@ -75,21 +67,7 @@ import { company, services, whatsappUrl } from '../data/site';
         <div class="showcase__visual" data-reveal>
           <div class="showcase__frame showcase__frame--screenshots">
             <div class="showcase__frame-top"><span>F40 <strong>CATÁLOGO</strong></span><span>VITRINE + ADMINISTRAÇÃO</span></div>
-            <div class="showcase__screens" aria-label="Duas telas demonstrativas do aplicativo de catálogo">
-              <a class="showcase__screen" href="/images/catalogo-vitrine-cliente.webp" target="_blank" rel="noopener noreferrer" aria-label="Ampliar a tela do catálogo e vitrine do cliente em uma nova aba">
-                <span class="showcase__screen-device">
-                  <img src="/images/catalogo-vitrine-cliente.webp" width="540" height="1086" loading="lazy" decoding="async" alt="Tela demonstrativa de loja virtual com pesquisa, coleção, três produtos e categorias" />
-                </span>
-                <span class="showcase__screen-caption"><strong>Experiência de compra</strong><span>Vitrine do cliente <span aria-hidden="true">↗</span></span></span>
-              </a>
-              <a class="showcase__screen" href="/images/catalogo-painel-administrativo.webp" target="_blank" rel="noopener noreferrer" aria-label="Ampliar a tela do painel administrativo em uma nova aba">
-                <span class="showcase__screen-device">
-                  <img src="/images/catalogo-painel-administrativo.webp" width="540" height="1096" loading="lazy" decoding="async" alt="Tela demonstrativa do painel administrativo com estoque, pedidos e indicadores financeiros fictícios" />
-                </span>
-                <span class="showcase__screen-caption"><strong>Controle da loja</strong><span>Painel administrativo <span aria-hidden="true">↗</span></span></span>
-              </a>
-            </div>
-            <span class="showcase__frame-note">TELAS DEMONSTRATIVAS • DADOS FICTÍCIOS</span>
+            <AppStoreDemoPair variant="section" showCaptions={true} />
           </div>
         </div>
         <div class="showcase__copy" data-reveal><span class="eyebrow">NOSSA SOLUÇÃO EM DESTAQUE</span><span class="showcase__tag">PROJETO EM FINALIZAÇÃO</span><h2 class="section-title" id="catalog-title">A vitrine do seu negócio. <span class="highlight">Agora, em todo lugar.</span></h2><p class="showcase__intro">Estamos finalizando nossa solução de catálogo digital: uma experiência moderna para apresentar produtos, facilitar pedidos e aproximar sua loja de novos clientes.</p>
@@ -224,5 +202,15 @@ import { company, services, whatsappUrl } from '../data/site';
   .showcase__screens{gap:7px;}
   .showcase__frame--screenshots{padding-left:9px;padding-right:9px;}
 }
+
+
+/* limpeza visual das áreas de demonstrativo com o novo par de telas */
+.hero__scene{height:auto;min-height:465px;padding-block:10px 6px;overflow:visible}
+.showcase__frame--screenshots{min-height:0;padding:68px 18px 22px;background:radial-gradient(ellipse at 50% 42%,#5a4326 0%,#241f19 39%,#101112 79%)}
+.showcase__frame-top{top:20px;left:20px;right:20px}
+.showcase__screens,.showcase__screen,.showcase__screen-device,.showcase__screen-caption,.showcase__frame-note,.hero-showcase,.hero-showcase__desktop,.hero-showcase__mobile,.scene-badge,.hero__visualnote{display:initial}
+@media(max-width:870px){.hero__scene{min-height:0}}
+@media(max-width:700px){.showcase__frame--screenshots{padding:62px 14px 18px}}
+@media(max-width:520px){.hero__scene{margin-top:18px;padding-bottom:0}.showcase__frame-top{top:16px;left:14px;right:14px;font-size:.58rem}.showcase__frame-top span:last-child{font-size:.48rem}.showcase__frame--screenshots{padding:54px 10px 16px}}
 
 </style>

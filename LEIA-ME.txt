@@ -1,0 +1,19 @@
+ATUALIZAÇÃO - demonstrativos do app loja
+
+Arquivos incluídos nesta atualização:
+- src/components/AppStoreDemoPair.astro
+- src/components/ConceptPreview.astro
+- src/pages/index.astro
+- public/images/catalogo-cliente-real.webp
+- public/images/catalogo-admin-real.webp
+
+O que foi aplicado:
+- uso das duas telas reais do app loja lado a lado e com mesmo tamanho
+- aplicado no início da home
+- aplicado na seção de catálogo mais abaixo da home
+- aplicado na página /solucoes/ na demonstração de catálogo
+- visual mais clean e moderno
+
+Observação:
+- neste ambiente não foi possível rodar o build final porque a versão do Node disponível é 22.16.0, e o projeto pede >= 22.23.4.
+- as alterações de código e assets já estão prontas para você aplicar no seu projeto.
