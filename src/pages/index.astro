@@ -25,23 +25,19 @@ import { company, services, whatsappUrl } from '../data/site';
           </div>
           <div class="hero__location"><span class="status-dot" aria-hidden="true"></span> Atendendo Bragança Paulista e região</div>
         </div>
-        <div class="hero__scene" data-reveal aria-label="Ilustração de um catálogo digital em um painel de vendas">
+        <div class="hero__scene" data-reveal aria-label="Apresentação visual com duas telas demonstrativas do catálogo digital e do painel administrativo">
           <div class="hero__orbit hero__orbit--outer" aria-hidden="true"></div>
           <div class="hero__orbit hero__orbit--inner" aria-hidden="true"></div>
-          <div class="display-card">
-            <div class="display-card__top"><span class="display-card__dot"></span><span class="display-card__dot"></span><span class="display-card__dot"></span><span class="display-card__url">seu catálogo digital</span></div>
-            <div class="display-card__body">
-              <div class="display-card__nav"><span class="display-card__logo">Sua<span>Marca.</span></span><span class="display-card__navlinks">Início&nbsp;&nbsp; Coleção&nbsp;&nbsp; Contato</span></div>
-              <div class="display-card__banner"><span class="display-card__bannerlabel">NOVA COLEÇÃO</span><strong>Seu estilo, sua essência.</strong><span class="display-card__bannerline"></span></div>
-              <div class="display-card__products">
-                <div class="display-card__product"><img src="/images/product-bag.svg" alt="Ilustração de uma bolsa para exemplo de catálogo" width="180" height="174" loading="eager"/><span>Bolsa Urbana</span><small>R$ 149,90</small></div>
-                <div class="display-card__product"><img src="/images/product-shoe.svg" alt="Ilustração de um tênis para exemplo de catálogo" width="180" height="174" loading="eager"/><span>Tênis Essential</span><small>R$ 229,90</small></div>
-                <div class="display-card__product"><img src="/images/product-watch.svg" alt="Ilustração de um relógio para exemplo de catálogo" width="180" height="174" loading="eager"/><span>Relógio Classic</span><small>R$ 189,90</small></div>
-              </div>
+          <div class="hero-showcase">
+            <div class="hero-showcase__desktop">
+              <img src="/images/catalogo-vitrine-cliente.webp" width="540" height="1086" loading="eager" decoding="async" alt="Tela demonstrativa da vitrine do cliente com pesquisa, coleção, produtos e categorias" />
+            </div>
+            <div class="hero-showcase__mobile">
+              <img src="/images/catalogo-painel-administrativo.webp" width="540" height="1096" loading="eager" decoding="async" alt="Tela demonstrativa do painel administrativo com estoque, pedidos e indicadores de vendas" />
             </div>
           </div>
           <div class="scene-badge"><span class="scene-badge__icon" aria-hidden="true">✦</span><span>Projeto em destaque<strong>Catálogo digital</strong></span></div>
-          <span class="hero__visualnote">PRÉVIA CONCEITUAL • VISUAL ILUSTRATIVO</span>
+          <span class="hero__visualnote">TELAS DEMONSTRATIVAS • DADOS FICTÍCIOS</span>
         </div>
       </div>
       <div class="hero__scroll" aria-hidden="true">EXPLORE <span></span></div>
@@ -162,4 +158,13 @@ import { company, services, whatsappUrl } from '../data/site';
 
 .services__explore{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;line-height:1.5;color:var(--gold-light);text-decoration:none;border-bottom:1px solid #7f623c;padding-bottom:8px;margin-bottom:26px}
 .services__explore:hover{color:#ffe1a1;border-color:#ffe1a1}
+.hero-showcase{position:relative;z-index:2;width:min(100%,590px);height:100%;display:flex;align-items:center;justify-content:center}
+.hero-showcase__desktop,.hero-showcase__mobile{position:relative;overflow:hidden;background:linear-gradient(145deg,#49433d 0%,#181818 22%,#080809 78%,#947249 100%);box-shadow:0 28px 55px #000b,0 0 0 1px rgba(242,199,132,.22)}
+.hero-showcase__desktop{width:min(100%,455px);padding:8px;border-radius:28px;transform:rotate(-3deg) translateX(-18px)}
+.hero-showcase__desktop img{display:block;width:100%;height:auto;max-height:420px;object-fit:contain;border-radius:21px;background:#faf8f4}
+.hero-showcase__mobile{position:absolute;right:4px;bottom:36px;width:min(42%,182px);padding:6px;border-radius:24px;transform:rotate(7deg)}
+.hero-showcase__mobile img{display:block;width:100%;height:auto;max-height:360px;object-fit:contain;border-radius:18px;background:#fbf9f6}
+@media(max-width:870px){.hero-showcase{width:min(100%,560px)}.hero-showcase__desktop{width:min(100%,430px);transform:rotate(-3deg)}.hero-showcase__mobile{right:8px;bottom:24px;width:min(39%,168px)}}
+@media(max-width:520px){.hero-showcase{height:100%}.hero-showcase__desktop{width:min(100%,300px);padding:5px;border-radius:20px;transform:rotate(-2deg) translateX(-14px)}.hero-showcase__desktop img{max-height:250px;border-radius:15px}.hero-showcase__mobile{width:min(41%,118px);padding:4px;border-radius:17px;right:2px;bottom:32px}.hero-showcase__mobile img{max-height:220px;border-radius:13px}}
+
 </style>
