@@ -30,7 +30,7 @@ import { company, services, whatsappUrl } from '../data/site';
           <div class="hero__orbit hero__orbit--inner" aria-hidden="true"></div>
           <div class="hero-showcase">
             <div class="hero-showcase__desktop">
-              <img src="/images/catalogo-vitrine-premium.png" width="540" height="1086" loading="eager" decoding="async" alt="Tela demonstrativa da vitrine do cliente com pesquisa, coleção, produtos e categorias" />
+              <img src="/images/catalogo-vitrine-premium.png" width="1536" height="1152" loading="eager" decoding="async" alt="Tela demonstrativa da vitrine do cliente com pesquisa, coleção, produtos e categorias" />
             </div>
             <div class="hero-showcase__mobile">
               <img src="/images/catalogo-painel-administrativo.webp" width="540" height="1096" loading="eager" decoding="async" alt="Tela demonstrativa do painel administrativo com estoque, pedidos e indicadores de vendas" />
@@ -76,9 +76,9 @@ import { company, services, whatsappUrl } from '../data/site';
           <div class="showcase__frame showcase__frame--screenshots">
             <div class="showcase__frame-top"><span>F40 <strong>CATÁLOGO</strong></span><span>VITRINE + ADMINISTRAÇÃO</span></div>
             <div class="showcase__screens" aria-label="Duas telas demonstrativas do aplicativo de catálogo">
-              <a class="showcase__screen" href="/images/catalogo-vitrine-premium.png" target="_blank" rel="noopener noreferrer" aria-label="Ampliar a tela do catálogo e vitrine do cliente em uma nova aba">
+              <a class="showcase__screen" href="/images/catalogo-vitrine-cliente.webp" target="_blank" rel="noopener noreferrer" aria-label="Ampliar a tela do catálogo e vitrine do cliente em uma nova aba">
                 <span class="showcase__screen-device">
-                  <img src="/images/catalogo-vitrine-premium.png" width="540" height="1086" loading="lazy" decoding="async" alt="Tela demonstrativa de loja virtual com pesquisa, coleção, três produtos e categorias" />
+                  <img src="/images/catalogo-vitrine-cliente.webp" width="540" height="1086" loading="lazy" decoding="async" alt="Tela demonstrativa de loja virtual com pesquisa, coleção, três produtos e categorias" />
                 </span>
                 <span class="showcase__screen-caption"><strong>Experiência de compra</strong><span>Vitrine do cliente <span aria-hidden="true">↗</span></span></span>
               </a>
@@ -166,5 +166,63 @@ import { company, services, whatsappUrl } from '../data/site';
 .hero-showcase__mobile img{display:block;width:100%;height:auto;max-height:360px;object-fit:contain;border-radius:18px;background:#fbf9f6}
 @media(max-width:870px){.hero-showcase{width:min(100%,560px)}.hero-showcase__desktop{width:min(100%,430px);transform:rotate(-3deg)}.hero-showcase__mobile{right:8px;bottom:24px;width:min(39%,168px)}}
 @media(max-width:520px){.hero-showcase{height:100%}.hero-showcase__desktop{width:min(100%,300px);padding:5px;border-radius:20px;transform:rotate(-2deg) translateX(-14px)}.hero-showcase__desktop img{max-height:250px;border-radius:15px}.hero-showcase__mobile{width:min(41%,118px);padding:4px;border-radius:17px;right:2px;bottom:32px}.hero-showcase__mobile img{max-height:220px;border-radius:13px}}
+
+/* AJUSTE MOBILE / NOV 2026 — composição contida, sem elementos cortados */
+.hero__scene{isolation:isolate;max-width:100%;}
+.hero-showcase{width:100%;max-width:580px;min-width:0;padding:18px 8px 82px;box-sizing:border-box;}
+.hero-showcase__desktop{width:min(82%,460px);max-width:100%;margin-right:14%;padding:7px;border-radius:22px;transform:rotate(-1deg);box-sizing:border-box;flex-shrink:0;}
+.hero-showcase__desktop img{display:block;width:100%;height:auto;max-height:none;aspect-ratio:4/3;object-fit:contain;border-radius:16px;}
+.hero-showcase__mobile{right:1%;bottom:94px;width:min(30%,155px);padding:5px;border-radius:22px;transform:rotate(3deg);box-sizing:border-box;}
+.hero-showcase__mobile img{width:100%;height:auto;max-height:none;aspect-ratio:540/1096;object-fit:contain;border-radius:16px;}
+.scene-badge{right:3px;bottom:37px;transform:rotate(-2deg);}
+.hero__visualnote{bottom:10px;max-width:100%;white-space:normal;text-align:center;line-height:1.4;}
+/* Ambas as telas da vitrine em formato de celular, sem empilhamento nem corte */
+.showcase__frame--screenshots{height:auto;min-height:0;padding:74px 20px 57px;}
+.showcase__screens{width:min(100%,510px);grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(8px,2.4vw,17px);align-items:start;}
+.showcase__screen{min-width:0;max-width:235px;width:100%;}
+.showcase__screen:nth-child(2){margin-top:0;}
+.showcase__screen-device{width:100%;box-sizing:border-box;}
+.showcase__screen-device img{width:100%;height:auto;aspect-ratio:540/1096;object-fit:contain;}
+.showcase__screen-caption{width:100%;min-width:0;}
+@media(max-width:870px){
+  .hero__scene{transform:none;max-width:610px;}
+  .hero-showcase__desktop{width:min(80%,440px);}
+  .hero-showcase__mobile{right:2%;bottom:92px;width:min(29%,155px);}
+  .scene-badge{right:3px;}
+}
+@media(max-width:700px){
+  .showcase__frame--screenshots{min-height:0;padding:68px 16px 55px;}
+  .showcase__screens{max-width:470px;gap:13px;}
+}
+@media(max-width:520px){
+  .hero__scene{height:350px;margin-top:21px;width:100%;max-width:100%;}
+  .hero__orbit--outer{width:340px;height:340px;max-width:100%;}
+  .hero__orbit--inner{width:260px;height:260px;max-width:86%;}
+  .hero-showcase{width:100%;height:100%;padding:7px 7px 86px;overflow:visible;}
+  .hero-showcase__desktop{width:min(78%,280px);margin-right:17%;padding:5px;border-radius:16px;transform:none;}
+  .hero-showcase__desktop img{max-height:none;border-radius:11px;}
+  .hero-showcase__mobile{right:1%;bottom:107px;width:min(31%,115px);padding:4px;border-radius:16px;transform:rotate(2deg);}
+  .hero-showcase__mobile img{max-height:none;border-radius:12px;}
+  .scene-badge{right:2px;bottom:39px;max-width:215px;padding:8px 11px;gap:8px;transform:none;}
+  .scene-badge__icon{font-size:1.1rem;}
+  .hero__visualnote{bottom:11px;left:0;right:0;transform:none;font-size:.48rem;letter-spacing:.10em;}
+  .showcase__frame--screenshots{padding:62px 12px 51px;min-height:0;}
+  .showcase__screens{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:start;}
+  .showcase__screen:nth-child(2){margin-top:0;}
+  .showcase__screen-device{padding:4px;border-radius:19px;}
+  .showcase__screen-device img{aspect-ratio:540/1096;height:auto;border-radius:14px;}
+  .showcase__screen-caption{gap:4px;padding-top:12px;line-height:1.27;}
+  .showcase__screen-caption strong{font-size:.72rem;}
+  .showcase__screen-caption>span{font-size:.63rem;}
+  .showcase__frame-top{top:18px;}
+}
+@media(max-width:360px){
+  .hero__scene{height:324px;}
+  .hero-showcase{padding-bottom:82px;}
+  .hero-showcase__mobile{bottom:100px;width:min(31%,96px);}
+  .scene-badge{bottom:36px;}
+  .showcase__screens{gap:7px;}
+  .showcase__frame--screenshots{padding-left:9px;padding-right:9px;}
+}
 
 </style>
