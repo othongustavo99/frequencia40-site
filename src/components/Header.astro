@@ -1,5 +1,4 @@
 ---
-import BrandLogo from './BrandLogo.astro';
 const links = [
   { label: 'Início', to: '/' },
   { label: 'Serviços', to: '/#servicos' },
@@ -10,7 +9,23 @@ const links = [
 ---
 <header class="site-header">
   <div class="container header__inner">
-    <BrandLogo />
+    <a class="header__brand" href="/" aria-label="Frequência40 — voltar à página inicial">
+      <picture>
+        <source
+          type="image/webp"
+          srcset="/images/marca-cabecalho-560.webp 560w, /images/marca-cabecalho-1000.webp 1000w"
+          sizes="(max-width: 480px) 228px, (max-width: 820px) 290px, 325px"
+        />
+        <img
+          src="/images/marca-cabecalho.jpg"
+          alt="40Hz — Frequência40, Desenvolvimento e Tecnologia. Programando o futuro."
+          width="1536"
+          height="326"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </picture>
+    </a>
     <nav class="desktop-nav" aria-label="Navegação principal">
       {links.map((link) => <a href={link.to}>{link.label}</a>)}
     </nav>
@@ -27,6 +42,11 @@ const links = [
 <style>
   .site-header{position:sticky;top:0;z-index:50;background:rgba(9,10,11,.91);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(216,170,90,.11)}
   .header__inner{height:84px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+  .header__brand{display:block;flex:0 1 325px;min-width:0;max-width:100%;line-height:0;text-decoration:none}
+  .header__brand picture,.header__brand img{display:block;width:100%;height:auto}
+  .header__brand img{object-fit:contain;aspect-ratio:1536 / 326;mix-blend-mode:screen}
+  .header__brand:hover img{filter:brightness(1.07)}
+  .header__brand:focus-visible{outline:2px solid var(--gold-light);outline-offset:5px}
   .desktop-nav{display:flex;align-items:center;gap:clamp(11px,1.8vw,27px)}
   .desktop-nav a{font-size:.82rem;color:#b8b8b8;text-decoration:none;transition:color .2s}
   .desktop-nav a:hover,.desktop-nav a:focus-visible{color:var(--gold-light)}
@@ -44,8 +64,9 @@ const links = [
   .mobile-nav nav{position:absolute;right:0;top:55px;display:grid;min-width:min(290px,calc(100vw - 32px));padding:12px;background:#161615;border:1px solid #56442a;box-shadow:0 20px 50px #000b;border-radius:8px}
   .mobile-nav nav a{padding:13px;text-decoration:none;color:#f5f0e7;border-radius:4px}
   .mobile-nav nav a:hover{background:#2a241c}
-  @media(max-width:1000px){.desktop-nav{gap:14px}.desktop-nav a{font-size:.77rem}.header__contact{display:none}}
-  @media(max-width:820px){.desktop-nav{display:none}.mobile-nav{display:block}.header__inner{height:74px}}
+  @media(max-width:1100px){.desktop-nav{gap:14px}.desktop-nav a{font-size:.77rem}.header__contact{display:none}.header__brand{flex-basis:300px}}
+  @media(max-width:820px){.desktop-nav{display:none}.mobile-nav{display:block}.header__inner{height:76px;gap:12px}.header__brand{flex:0 1 290px;max-width:calc(100% - 58px)}}
+  @media(max-width:360px){.header__inner{height:68px}.mobile-nav summary{width:41px;height:41px}}
 </style>
 
 <script>
