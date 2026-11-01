@@ -1,10 +1,17 @@
 ---
-import BrandLogo from './BrandLogo.astro';
 import { company, whatsappUrl } from '../data/site';
 ---
 <footer class="footer">
   <div class="container footer__main">
-    <div class="footer__brand"><BrandLogo compact /><p>Tecnologia que conecta ideias, pessoas e negócios. Soluções sob medida para a sua próxima conquista.</p></div>
+    <div class="footer__brand">
+      <a class="footer__logo" href="/" aria-label="Frequência40 — voltar à página inicial">
+        <picture>
+          <source type="image/webp" srcset="/images/marca-cabecalho-560.webp 560w, /images/marca-cabecalho-1000.webp 1000w" sizes="(max-width: 480px) 310px, 370px" />
+          <img src="/images/marca-cabecalho.jpg" alt="40Hz — Frequência40 Desenvolvimento e Tecnologia. Programando o futuro." width="1536" height="326" loading="lazy" decoding="async" />
+        </picture>
+      </a>
+      <p>Tecnologia que conecta ideias, pessoas e negócios. Soluções sob medida para a sua próxima conquista.</p>
+    </div>
     <div class="footer__nav"><span>EXPLORAR</span><a href="/#servicos">Serviços</a><a href="/solucoes/">Exemplos de soluções</a><a href="/orcamento/">Solicitar orçamento</a><a href="/#catalogo">Catálogo digital</a><a href="/#sobre">Sobre nós</a></div>
     <div class="footer__nav"><span>FALE COM A GENTE</span><a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">WhatsApp: {company.whatsappDisplay} ↗</a><span class="footer__location">Bragança Paulista · SP</span><a href="/privacidade/">Privacidade</a></div>
   </div>
@@ -13,7 +20,11 @@ import { company, whatsappUrl } from '../data/site';
 <style>
 .footer{background:#090909;border-top:1px solid #372b1a;padding-top:65px}
 .footer__main{display:grid;grid-template-columns:1.5fr .8fr 1fr;gap:60px;padding-bottom:58px}
-.footer__brand p{font-size:.88rem;color:var(--muted);max-width:330px;line-height:1.8;margin:24px 0 0}
+.footer__logo{display:block;width:min(100%,370px);line-height:0;text-decoration:none;outline-offset:5px}
+.footer__logo picture,.footer__logo img{display:block;width:100%;height:auto}
+.footer__logo img{aspect-ratio:1536 / 326;object-fit:contain;mix-blend-mode:screen}
+.footer__logo:hover img{filter:brightness(1.08)}
+.footer__brand p{font-size:.88rem;color:var(--muted);max-width:350px;line-height:1.8;margin:21px 0 0}
 .footer__nav{display:flex;flex-direction:column;gap:15px}
 .footer__nav>span:first-child{font-size:.66rem;letter-spacing:.23em;font-weight:700;color:var(--gold)}
 .footer__nav a{font-size:.87rem;color:#c8c8c8;text-decoration:none}

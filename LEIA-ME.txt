@@ -1,19 +1,17 @@
-ATUALIZAÇÃO - demonstrativos do app loja
+FREQUÊNCIA40 — CORREÇÃO DO GRÁFICO DE INTEGRAÇÃO E LOGO DO RODAPÉ
 
-Arquivos incluídos nesta atualização:
-- src/components/AppStoreDemoPair.astro
-- src/components/ConceptPreview.astro
-- src/pages/index.astro
-- public/images/catalogo-cliente-real.webp
-- public/images/catalogo-admin-real.webp
+Base: Fase 7, com as 12 páginas de serviços.
 
-O que foi aplicado:
-- uso das duas telas reais do app loja lado a lado e com mesmo tamanho
-- aplicado no início da home
-- aplicado na seção de catálogo mais abaixo da home
-- aplicado na página /solucoes/ na demonstração de catálogo
-- visual mais clean e moderno
+ALTERAÇÕES
+1) ExperienceShowcase.astro: gráfico de integrações agora responsivo, sem recorte no celular. No celular exibe a nova versão vertical, com Catálogo, Pedidos, Estoque e Atendimento completamente visíveis. O SVG anterior permanece no desktop.
+2) Footer.astro: a marca do rodapé usa exatamente as imagens do cabeçalho 40Hz/Frequência40, com WebP responsivo e JPG de fallback. O rodapé é compartilhado por todas as páginas.
+3) Novo arquivo em public/images/integracao-exemplo-mobile.svg.
 
-Observação:
-- neste ambiente não foi possível rodar o build final porque a versão do Node disponível é 22.16.0, e o projeto pede >= 22.23.4.
-- as alterações de código e assets já estão prontas para você aplicar no seu projeto.
+APLICAÇÃO
+Extraia o ZIP de atualização DIRETAMENTE na raiz de frequencia40-site, mantendo a estrutura de pastas e substituindo os arquivos existentes.
+Execute: npm run build
+Depois: npm run dev
+Se tudo estiver correto: git add . ; git commit -m "fix: integrar arte responsiva e alinhar logo do rodape" ; git push origin main
+
+VALIDAÇÃO
+SVG renderizado e validado. Imagens do cabeçalho confirmadas na base. O build Astro completo não foi executado neste ambiente.

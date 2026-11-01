@@ -25,7 +25,7 @@ import { whatsappUrl } from '../data/site';
         </div>
       </article>
       <article class="editorial__card editorial__card--graphic" data-reveal>
-        <div class="editorial__art"><img src="/images/integracao-exemplo.svg" width="760" height="480" alt="Ilustração conceitual de catálogo, pedidos, estoque e atendimento conectados" loading="lazy" decoding="async" /></div>
+        <div class="editorial__art"><picture><source media="(max-width: 520px)" srcset="/images/integracao-exemplo-mobile.svg" type="image/svg+xml" /><img src="/images/integracao-exemplo.svg" width="760" height="480" alt="Ilustração conceitual de catálogo, pedidos, estoque e atendimento conectados" loading="lazy" decoding="async" /></picture></div>
         <div class="editorial__info"><span>02 / SISTEMAS CONECTADOS</span><h3>Menos etapas. Mais conexão.</h3><p>Integrações que aproximam informações, reduzem tarefas repetitivas e dão fluidez à operação.</p><a href={whatsappUrl('integrações e automações')} target="_blank" rel="noopener noreferrer" class="editorial__link">Explorar possibilidades <span aria-hidden="true">↗</span></a></div>
       </article>
       <article class="editorial__card editorial__card--graphic" data-reveal>
@@ -59,7 +59,7 @@ import { whatsappUrl } from '../data/site';
 .editorial__bottom>a{width:48px;height:48px;display:grid;place-items:center;border-radius:50%;border:1px solid #d0a558;flex:none;text-decoration:none;color:#ffe1a2;font-size:1.6rem}
 .editorial__card--graphic{display:grid;grid-template-columns:46% 54%;min-height:324px}
 .editorial__art{background:radial-gradient(circle at center,#32271850,#101112);min-width:0;display:flex;align-items:center;justify-content:center;border-right:1px solid #383027}
-.editorial__art img{width:100%;height:auto;display:block}
+.editorial__art picture{display:block;width:100%;max-width:100%;line-height:0}.editorial__art img{width:100%;height:auto;display:block;object-fit:contain}
 .editorial__info{padding:26px 24px 22px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
 .editorial__info>span{font-size:.56rem;letter-spacing:.13em;color:#d4ad6b;font-weight:750}
 .editorial__info h3{font-size:1.48rem;letter-spacing:-.035em;line-height:1.18;margin:18px 0 12px}
@@ -68,9 +68,9 @@ import { whatsappUrl } from '../data/site';
 .editorial__link span{margin-left:6px}
 .editorial__link:hover{text-decoration:underline;text-underline-offset:4px}
 .editorial__note{font-size:.7rem;color:#928b80;margin:19px 0 0;line-height:1.6}
-@media(max-width:1050px){.editorial__card--graphic{grid-template-columns:1fr}.editorial__art{max-height:185px;overflow:hidden;border-right:0;border-bottom:1px solid #383027}.editorial__art img{max-width:310px}.editorial__info{padding:21px 23px 25px}.editorial__info h3{margin:10px 0}}
+@media(max-width:1050px){.editorial__card--graphic{grid-template-columns:1fr}.editorial__art{max-height:none;overflow:visible;border-right:0;border-bottom:1px solid #383027}.editorial__art img{max-width:310px}.editorial__info{padding:21px 23px 25px}.editorial__info h3{margin:10px 0}}
 @media(max-width:740px){.editorial__grid{grid-template-columns:1fr}.editorial__card--photo{grid-row:auto;min-height:470px}.editorial__card--graphic{grid-template-columns:45% 55%;min-height:270px}.editorial__art{max-height:none;border-bottom:0;border-right:1px solid #383027}.editorial__art img{max-width:100%}}
-@media(max-width:520px){.editorial__grid{gap:12px}.editorial__card--photo{min-height:440px}.editorial__photo-overlay{padding:21px}.editorial__bottom h3{font-size:1.8rem}.editorial__meta{font-size:.52rem}.editorial__card--graphic{grid-template-columns:1fr}.editorial__art{max-height:185px;border:0;border-bottom:1px solid #383027}.editorial__art img{max-width:300px}.editorial__info{padding:22px 23px}.editorial__info h3{font-size:1.35rem}.editorial__info p{margin-bottom:17px}}
+@media(max-width:520px){.editorial__grid{gap:12px}.editorial__card--photo{min-height:440px}.editorial__photo-overlay{padding:21px}.editorial__bottom h3{font-size:1.8rem}.editorial__meta{font-size:.52rem}.editorial__card--graphic{grid-template-columns:1fr}.editorial__art{max-height:none;min-height:0;padding:12px 14px;border:0;border-bottom:1px solid #383027}.editorial__art picture{max-width:340px;margin-inline:auto}.editorial__art img{max-width:100%;height:auto;object-fit:contain}.editorial__info{padding:22px 23px}.editorial__info h3{font-size:1.35rem}.editorial__info p{margin-bottom:17px}}
 @media(prefers-reduced-motion:no-preference){:global(.can-reveal) [data-reveal]{opacity:0;transform:translateY(20px);transition:opacity .52s ease,transform .52s ease}:global(.can-reveal) [data-reveal].is-visible{opacity:1;transform:translateY(0)}}
 
 .editorial__more{display:flex;align-items:center;justify-content:space-between;gap:30px;padding:28px 30px;margin-top:22px;background:linear-gradient(100deg,#1d1b18,#121313);border:1px solid #5b4528;border-radius:10px}
