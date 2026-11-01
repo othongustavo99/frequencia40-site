@@ -1,0 +1,6 @@
+Atualização aplicada:
+- Substituída a imagem maior usada na home e no bloco de demonstração de Comércio Digital.
+- Nova imagem adicionada em public/images/catalogo-vitrine-premium.png
+- Arquivos alterados:
+  - src/pages/index.astro
+  - src/components/ConceptPreview.astro
