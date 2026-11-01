@@ -9,6 +9,20 @@ import { fileURLToPath } from 'node:url';
 
 const dist = fileURLToPath(new URL('../dist/', import.meta.url));
 const requiredFiles = [
+  ...[
+    'lojas-virtuais-e-aplicativos',
+    'automacao-para-whatsapp',
+    'sistemas-de-estoque-e-vendas',
+    'cardapios-e-catalogos-digitais',
+    'integracoes-entre-sistemas-e-apis',
+    'fidelidade-e-cashback',
+    'paineis-gerenciais-e-relatorios',
+    'agendamentos-e-reservas',
+    'gestao-de-entregas-locais',
+    'sites-e-landing-pages',
+    'hardware-e-software',
+    'assistentes-de-ia-personalizados',
+  ].map((slug) => `servicos/${slug}/index.html`),
   'index.html', 'solucoes/index.html', 'orcamento/index.html',
   'privacidade/index.html', '404.html', 'favicon.svg',
   'images/social-preview.png', '_headers', 'robots.txt',

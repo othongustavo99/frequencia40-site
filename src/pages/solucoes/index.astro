@@ -4,6 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ConceptPreview from '../../components/ConceptPreview.astro';
 import { services, whatsappUrl } from '../../data/site';
+import { serviceUrlById } from '../../data/service-pages';
 const examples = [
   {
     id: 'catalogo', number: '01', type: 'COMÉRCIO DIGITAL', title: 'Uma vitrine que acompanha o seu cliente.',
@@ -75,7 +76,7 @@ const examples = [
 
     <section class="section more-solutions" aria-labelledby="more-title"><div class="container">
       <div class="section-top"><div><span class="eyebrow">TAMBÉM DESENVOLVEMOS</span><h2 id="more-title" class="section-title">Muito além dos <span class="highlight">exemplos.</span></h2></div><p class="section-lead">Essas quatro experiências são pontos de partida. Conheça todas as nossas áreas de atuação — cada solicitação recebe análise de viabilidade e proposta individual.</p></div>
-      <div class="more-solutions__grid">{services.map((service) => <a href={whatsappUrl(service.name)} target="_blank" rel="noopener noreferrer"><span>{service.id}</span><strong>{service.name}</strong><span aria-hidden="true">↗</span></a>)}</div>
+      <div class="more-solutions__grid">{services.map((service) => <a href={serviceUrlById(service.id)}><span>{service.id}</span><strong>{service.name}</strong><span aria-hidden="true">↗</span></a>)}</div>
     </div></section>
 
     <section class="section examples-faq" aria-labelledby="faq-title"><div class="container faq-grid"><div><span class="eyebrow">PERGUNTAS FREQUENTES</span><h2 id="faq-title" class="section-title">Como a sua ideia<br/><span class="highlight">vira um projeto?</span></h2><p>O primeiro passo é entender o que realmente precisa ser resolvido, antes de escolher a tecnologia.</p></div><div class="faq-list">
